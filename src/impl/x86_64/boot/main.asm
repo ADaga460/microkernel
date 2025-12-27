@@ -52,11 +52,11 @@ check_long_mode:
 
 	mov eax, 0x80000001
 	cpuid
-	test edx, 1 << 
+	test edx, 1 << 29
 	jz .no_long_mode
 	
 	ret
-.no_long_mode: 
+.no_long_mode:
 	mov al, "L"
 	jmp error
 

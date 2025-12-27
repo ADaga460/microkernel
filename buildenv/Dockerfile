@@ -14,5 +14,6 @@ WORKDIR /root/env
 # build the kernel inside the container:
 # bash: docker run --rm -it -v ${PWD}:/root/env mykernel
 # docker: (~env/#)  make build-x86_64
-# finally run the iso in qemu:
+
+# finally run the iso in qemu (do this outside the container):
 # bash: qemu-system-x86_64 -cdrom dist/x86_64/kernel.iso
