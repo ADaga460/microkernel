@@ -1,3 +1,7 @@
 boot/kernel.bin
 build/
 dist/
+.vscode/
+.github/
+c_cpp_properties.json
+settings.json
