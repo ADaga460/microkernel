@@ -2,6 +2,8 @@
 #include "idt.h"
 
 void kernel_main() {
+    // qemu-system-x86_64 -cdrom dist/x86_64/kernel.iso
+    
     print_clear();
     print_set_color(PRINT_COLOR_LIGHT_GREEN, PRINT_COLOR_BLACK);
     print_str("Welcome to the Microkernel!\n");

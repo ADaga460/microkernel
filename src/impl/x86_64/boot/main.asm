@@ -128,9 +128,15 @@ stack_top:
 
 section .rodata
 gdt64:
-	dq 0 ; zero entry
+    dq 0                                           ; Null descriptor
 .code_segment: equ $ - gdt64
-	dq (1 << 43) | (1 << 44) | (1 << 47) | (1 << 53) ; code segment
+    dq (1 << 43) | (1 << 44) | (1 << 47) | (1 << 53) ; Kernel code (0x08)
+.data_segment: equ $ - gdt64
+    dq (1 << 44) | (1 << 47) | (1 << 41)         ; Kernel data (0x10)
+.user_code_segment: equ $ - gdt64
+    dq (1 << 43) | (1 << 44) | (1 << 47) | (1 << 53) | (3 << 45) ; User code (0x18, DPL=3)
+.user_data_segment: equ $ - gdt64
+    dq (1 << 44) | (1 << 47) | (1 << 41) | (3 << 45) ; User data (0x20, DPL=3)
 .pointer:
-	dw $ - gdt64 - 1 ; length
-	dq gdt64 ; address
+    dw $ - gdt64 - 1
+    dq gdt64
