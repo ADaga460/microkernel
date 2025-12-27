@@ -56,7 +56,7 @@ void clear_row(size_t row) {
 
 void print_char(char character) {
     if (character == '\n') {
-        terminal_column = 0;
+        print_newline();
         return;
     }
 
